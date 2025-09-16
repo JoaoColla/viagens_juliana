@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barleaval - Suas Melhores Viagens</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🌿</div>
+                    <span class="logo-text">Colla-Travel</span>
+                </div>
+                <nav class="nav">
+                    <span class="nav-item">MornaiKingar tips</span>
+                    <div class="nav-icons">
+                        <span class="nav-icon">📈</span>
+                        <span class="nav-icon">🔍</span>
+                        <span class="nav-icon">✓</span>
+                    </div>
+                    <span class="nav-cta">Aace us</span>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="tropical-leaves"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Suas Melhores Viagens</h1>
+                <p class="hero-subtitle">Descubra destinos incríveis e crie memórias inesquecíveis</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="main-layout">
+                <!-- Search Section -->
+                <div class="search-section">
+                    <div class="search-tabs">
+                        <button class="search-tab active" data-tab="stay">Viagem + Estadia</button>
+                        <button class="search-tab" data-tab="offers">Viagem sem Estadia</button>
+                        <button class="search-tab" data-tab="trip">Com Guia Turístico</button>
+                    </div>
+
+                    <!-- Trip Type Selection -->
+                    <div class="trip-type-section">
+                        <div class="trip-type-tabs">
+                            <button class="trip-type-tab active" data-type="nacional">🇧🇷 Viagens Nacionais</button>
+                            <button class="trip-type-tab" data-type="internacional">🌍 Viagens Internacionais</button>
+                        </div>
+                    </div>
+
+                    <!-- Search Form -->
+                    <div class="search-form">
+                        <div class="search-row">
+                            <div class="search-field">
+                                <label>Destino</label>
+                                <select id="destination">
+                                    <option>📍 Escolher destino</option>
+                                    <option value="rio">Rio de Janeiro, RJ</option>
+                                    <option value="salvador">Salvador, BA</option>
+                                    <option value="floripa">Florianópolis, SC</option>
+                                    <option value="paris">Paris, França</option>
+                                    <option value="tokyo">Tóquio, Japão</option>
+                                    <option value="ny">Nova York, EUA</option>
+                                </select>
+                            </div>
+                            <div class="search-field">
+                                <label>Usuários</label>
+                                <select id="users">
+                                    <option>👤 1 Pessoa</option>
+                                    <option>👥 2 Pessoas</option>
+                                    <option>👨‍👩‍👧 Família</option>
+                                    <option>👫 Grupo</option>
+                                </select>
+                            </div>
+                            <div class="search-field">
+                                <label>Data</label>
+                                <input type="date" id="date">
+                            </div>
+                            <button class="search-btn">🔍 Buscar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Layout -->
+                <div class="content-layout">
+                    <!-- Left Content -->
+                    <div class="left-content">
+                        <!-- Evaluations Header -->
+                        <div class="evaluations-header">
+                            <h2>Avaliações</h2>
+                            <div class="sort-options">
+                                <span>Ordenar por:</span>
+                                <select id="sort">
+                                    <option>📊 Mais Avaliados</option>
+                                    <option>⭐ Melhor Nota</option>
+                                    <option>📅 Mais Recentes</option>
+                                    <option>💰 Menor Preço</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Destinations Grid -->
+                        <div class="destinations-grid" id="destinationsGrid">
+                            <!-- Cards will be dynamically loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Right Sidebar -->
+                    <div class="right-sidebar">
+                        <div class="sidebar-section">
+                            <h3>Filtros de Viagem</h3>
+                            
+                            <div class="filter-group">
+                                <h4>Tipo de Viagem</h4>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" checked> Viagem + Estadia</label>
+                                    <label><input type="checkbox"> Viagem sem Estadia</label>
+                                    <label><input type="checkbox"> Com Guia Turístico</label>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <h4>Faixa de Preço</h4>
+                                <div class="price-range">
+                                    <input type="range" min="100" max="5000" value="2500" id="priceRange">
+                                    <div class="price-labels">
+                                        <span>R$ 100</span>
+                                        <span id="currentPrice">R$ 2.500</span>
+                                        <span>R$ 5.000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <h4>Avaliação Mínima</h4>
+                                <div class="rating-filter">
+                                    <div class="stars" data-rating="4">
+                                        <span>⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                    <span>4+ estrelas</span>
+                                </div>
+                            </div>
+
+                            <button class="apply-filters-btn">Aplicar Filtros</button>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>Suas Avaliações</h3>
+                            <div class="user-reviews">
+                                <div class="review-item">
+                                    <div class="review-destination">Rio de Janeiro</div>
+                                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                                    <div class="review-date">Dezembro 2023</div>
+                                </div>
+                                <div class="review-item">
+                                    <div class="review-destination">Salvador</div>
+                                    <div class="review-rating">⭐⭐⭐⭐</div>
+                                    <div class="review-date">Janeiro 2024</div>
+                                </div>
+                            </div>
+                            <button class="add-review-btn">+ Avaliar Viagem</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Review Modal -->
+    <div class="modal" id="reviewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Avaliar Viagem</h3>
+                <button class="close-btn" onclick="closeReviewModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label>Destino</label>
+                        <input type="text" id="reviewDestination" placeholder="Nome do destino">
+                    </div>
+                    <div class="form-group">
+                        <label>Avaliação</label>
+                        <div class="rating-input" id="ratingInput">
+                            <span data-rating="1">⭐</span>
+                            <span data-rating="2">⭐</span>
+                            <span data-rating="3">⭐</span>
+                            <span data-rating="4">⭐</span>
+                            <span data-rating="5">⭐</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Comentário</label>
+                        <textarea id="reviewComment" placeholder="Conte sobre sua experiência..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Data da viagem</label>
+                        <input type="date" id="reviewDate">
+                    </div>
+                    <button type="submit" class="submit-review-btn">Enviar Avaliação</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/filters.js"></script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+/* Destination Cards */
+.destination-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.destination-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.destination-card-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.destination-card-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.destination-card:hover .destination-card-image::before {
+    opacity: 1;
+}
+
+.card-favorite {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.card-favorite:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.card-favorite.active {
+    background: var(--orange-accent);
+    color: white;
+}
+
+.destination-card-content {
+    padding: var(--space-4);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.destination-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-3);
+}
+
+.destination-card-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--primary-green);
+    margin: 0;
+}
+
+.destination-card-location {
+    font-size: var(--font-size-sm);
+    color: var(--medium-gray);
+    margin-bottom: var(--space-2);
+}
+
+.destination-card-description {
+    font-size: var(--font-size-sm);
+    color: var(--dark-gray);
+    line-height: 1.5;
+    margin-bottom: var(--space-4);
+    flex-grow: 1;
+}
+
+.destination-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-3);
+    border-top: 1px solid #e9ecef;
+}
+
+.destination-rating {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.rating-stars {
+    color: var(--orange-accent);
+}
+
+.rating-count {
+    font-size: var(--font-size-sm);
+    color: var(--medium-gray);
+}
+
+.destination-price {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--primary-green);
+}
+
+.destination-price-period {
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    color: var(--medium-gray);
+}
+
+/* Destination Tags */
+.destination-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+}
+
+.destination-tag {
+    background: var(--accent-green);
+    color: var(--primary-green);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+}
+
+.destination-tag.premium {
+    background: var(--orange-accent);
+    color: white;
+}
+
+.destination-tag.guide {
+    background: var(--yellow-accent);
+    color: var(--primary-green);
+}
+
+/* Loading State */
+.destinations-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--accent-green);
+    border-top: 3px solid var(--primary-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    color: var(--medium-gray);
+    font-size: var(--font-size-base);
+}
+
+/* Empty State */
+.destinations-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    text-align: center;
+    color: var(--medium-gray);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: var(--space-4);
+}
+
+.empty-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-bottom: var(--space-2);
+}
+
+.empty-description {
+    font-size: var(--font-size-base);
+    max-width: 400px;
+}
+
+/* Notification Toast */
+.toast {
+    position: fixed;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-4);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    max-width: 300px;
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast-success {
+    border-left: 4px solid var(--secondary-green);
+}
+
+.toast-error {
+    border-left: 4px solid #dc3545;
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.toast-icon {
+    font-size: var(--font-size-lg);
+}
+
+.toast-text {
+    flex-grow: 1;
+}
+
+.toast-title {
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-1);
+}
+
+.toast-message {
+    font-size: var(--font-size-xs);
+    color: var(--medium-gray);
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    font-size: var(--font-size-lg);
+    cursor: pointer;
+    color: var(--medium-gray);
+    transition: color 0.2s ease;
+}
+
+.toast-close:hover {
+    color: var(--dark-gray);
+}
+
+/* Pulse Animation for Active Elements */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(45, 106, 79, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(45, 106, 79, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(45, 106, 79, 0);
+    }
+}
+
+/* Smooth Transitions for Dynamic Content */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-up {
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
